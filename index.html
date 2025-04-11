@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mood Journal</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="page-container">
+    <div class="journal-container">
+      <h1>Mood Journal</h1>
+
+      <textarea id="entryText" placeholder="How are you feeling today?"></textarea>
+
+      <div class="moods">
+        <button class="mood-btn" data-mood="😊">😊</button>
+        <button class="mood-btn" data-mood="😢">😢</button>
+        <button class="mood-btn" data-mood="😡">😡</button>
+        <button class="mood-btn" data-mood="😌">😌</button>
+        <button class="mood-btn" data-mood="🥳">🥳</button>
+      </div>
+
+      <button id="saveBtn">Save Entry</button>
+
+      <div class="filter-container">
+        <label for="filterMood"><strong>Filter by Mood:</strong></label>
+        <select id="filterMood">
+          <option value="">All Moods</option>
+          <option value="😊">😊</option>
+          <option value="😢">😢</option>
+          <option value="😡">😡</option>
+          <option value="😌">😌</option>
+          <option value="🥳">🥳</option>
+        </select>
+      </div>  
+
+      <h2>Journal Entries</h2>
+      <div id="entriesContainer"></div>
+    </div>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCjMa0DoOZRnfCdOd8mHsZUhXlh8JiZTOw",
+      authDomain: "mooddiary-7ef2d.firebaseapp.com",
+      projectId: "mooddiary-7ef2d",
+      storageBucket: "mooddiary-7ef2d.appspot.com",
+      messagingSenderId: "832017898132",
+      appId: "1:832017898132:web:72c1362170bc1e4d353281"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
